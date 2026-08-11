@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"> <!-- Recomendado para presells -->
+    <title>Sustarox - Cuidado y bienestar para tus piernas</title>
+    <style>
+        /* =========================================
+           RESETEO BÁSICO Y VARIABLES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-bg: #fcf1f4; /* Rosa suave inspirado en la página de referencia */
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --highlight-color: #8c213f; /* Rojo vino oscuro para títulos */
+            --btn-color: #d13043; /* Rojo brillante para el botón */
+            --btn-hover: #b52536;
+            --green-badge: #2a8b3d; /* Verde para sellos de natural/seguro */
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           CONTENEDORES Y ESTRUCTURA
+           ========================================= */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-bg);
+        }
+
+        .header h1 {
+            color: var(--highlight-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .alert-bar {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           GRILLA DE PRODUCTO
+           ========================================= */
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-image-container {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .product-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            /* Placeholder styles if image is missing */
+            min-height: 300px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+        }
+
+        .product-info {
+            flex: 1 1 300px;
+        }
+
+        .product-info h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: #e8f5e9;
+            color: var(--green-badge);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green-badge);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* =========================================
+           SECCIÓN DE PRECIO Y CTA
+           ========================================= */
+        .price-box {
+            background-color: var(--primary-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border: 2px dashed var(--highlight-color);
+        }
+
+        .discount-label {
+            display: inline-block;
+            background-color: var(--btn-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .prices {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+        }
+
+        .new-price {
+            color: var(--highlight-color);
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background-color: var(--btn-color);
+            color: var(--white);
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(209, 48, 67, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(209, 48, 67, 0.6);
+        }
+
+        .cod-notice {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* =========================================
+           CÓMO FUNCIONA EL PAGO CONTRA REEMBOLSO
+           ========================================= */
+        .how-it-works {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .how-it-works h3 {
+            text-align: center;
+            color: var(--highlight-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1 1 30%;
+            text-align: center;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            background-color: var(--highlight-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           FOOTER Y COMPLIANCE GOOGLE ADS
+           ========================================= */
+        .footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .product-info h2 { font-size: 1.5rem; }
+            .new-price { font-size: 2rem; }
+            .cta-button { font-size: 1.2rem; padding: 15px; }
+            .step { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- ENCABEZADO -->
+        <header class="header">
+            <h1>SUSTAROX</h1>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="content">
+            
+            <div class="alert-bar">
+                ⚠️ Oferta especial válida únicamente por el día de hoy o hasta agotar existencias.
+            </div>
+
+            <section class="product-section">
+                
+                <!-- IMAGEN DEL PRODUCTO (Reemplazar src con la imagen real) -->
+                <div class="product-image-container">
+                    <img src="Varicold.png" alt="Sustarox Gel Cosmético" title="Sustarox">
+                </div>
+
+                <!-- INFORMACIÓN DEL PRODUCTO -->
+                <div class="product-info">
+                    <h2>Sensación de ligereza y descanso para tus piernas cansadas</h2>
+                    
+                    <div class="badges">
+                        <span class="badge">🌿 Ingredientes Naturales</span>
+                        <span class="badge">🛡️ Fórmula Segura</span>
+                        <span class="badge">📦 Envío Discreto</span>
+                    </div>
+
+                    <ul class="benefits-list">
+                        <li>Fórmula cosmética desarrollada para el cuidado y confort diario.</li>
+                        <li>Proporciona una sensación refrescante inmediata tras su aplicación.</li>
+                        <li>Textura en gel de rápida absorción, no deja sensación grasosa.</li>
+                        <li>Ideal para mujeres y hombres con estilo de vida activo (56-65+ años).</li>
+                    </ul>
+
+                    <!-- CAJA DE PRECIO Y LLAMADO A LA ACCIÓN -->
+                    <div class="price-box">
+                        <span class="discount-label">Descuento Especial -50%</span>
+                        <div class="prices">
+                            <span class="old-price">78 EUR</span>
+                            <span class="new-price">39 EUR</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 5px;">*Precio final aplicable por unidad promocional.</p>
+                    </div>
+
+                    <!-- BOTÓN DE COMPRA -->
+                    <a href="https://mno8b.doctorimpact.com/l" class="cta-button">Hacer mi pedido ahora</a>
+                    
+                    <div class="cod-notice">
+                        🚚 Compra 100% Segura: <strong>Pagas al recibir tu paquete (Pago Contra Reembolso)</strong>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECCIÓN EDUCATIVA COD (Ayuda a aumentar la conversión y da confianza) -->
+            <section class="how-it-works">
+                <h3>¿Cómo realizar tu pedido?</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <strong>Completa el formulario</strong>
+                        <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-gray);">Haz clic en el botón y llena tus datos de envío en nuestra página oficial.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <strong>Confirmación</strong>
+                        <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-gray);">Un asesor te llamará para confirmar la dirección y el envío.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <strong>Paga al recibir</strong>
+                        <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-gray);">Recibe el paquete en la comodidad de tu hogar y paga en efectivo al repartidor.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER: CUMPLIMIENTO DE POLÍTICAS (Google Ads Compliance) -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Términos y Condiciones</a> |
+            <a href="#">Política de Privacidad</a> |
+            <a href="#">Política de Devoluciones</a> |
+            <a href="#">Contacto</a>
+        </div>
+        <div class="disclaimer">
+            <p><strong>Descargo de responsabilidad:</strong> Este sitio web y el producto proporcionado tienen fines únicamente cosméticos y de bienestar. Sustarox no es un medicamento, tratamiento médico ni pretende diagnosticar, tratar, curar o prevenir ninguna enfermedad (incluyendo venas varicosas o condiciones circulatorias graves). Las declaraciones realizadas sobre el producto no han sido evaluadas por agencias reguladoras de salud. Los resultados pueden variar dependiendo del individuo, su edad, estilo de vida y uso del producto. Consulta siempre a un profesional de la salud antes de utilizar nuevos productos si tienes condiciones médicas preexistentes.</p>
+            <p style="margin-top: 15px;">&copy; 2026 Sustarox. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
